@@ -29,17 +29,17 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
 
 //We can have more one provider (ex with popup, redirects)
-provider.setCustomParameters({
+googleProvider.setCustomParameters({
     prompt: "select_account"
 });
 
 //we must have one auth service, its singleton
 export const auth = getAuth();
-export const signInWithGooglePopup =()=> signInWithPopup(auth,provider);
-
+export const signInWithGooglePopup =()=> signInWithPopup(auth,googleProvider);
+export const signInWithGoogleRedirect = ()=> signInWithRedirect(auth,googleProvider);
 export const db = getFirestore();
 
 export const createUserDocumentFromAuth = async (userAuth)=>{
