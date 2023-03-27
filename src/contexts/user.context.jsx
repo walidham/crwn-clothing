@@ -12,7 +12,6 @@ export const UserProvider = ({children})=>{
     //signOutUser();
     useEffect(()=>{
         const unsubscribe = onAuthStateChangedListener((user)=>{
-            console.log('useeffect',user);
             if(user){
                 createUserDocumentFromAuth(user);
             }
