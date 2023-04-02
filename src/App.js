@@ -13,8 +13,7 @@ import {
 
 import {setCurrentUser} from "./store/user/user.action";
 import {useDispatch} from "react-redux";
-import {createAction} from "./utils/reducer/reducer.utils";
-import {setCategoriesMap} from "./store/categories/category.action";
+
 
 const App = () => {
     const dispatch = useDispatch();
