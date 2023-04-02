@@ -2,7 +2,6 @@ import {Title,Preview,CategoryPreviewContainer} from './category-preview.styles'
 import ProductCardComponent from "../product-card/product-card.component";
 
 const CategoryPreviewComponent = ({title, products}) => {
-
     return (
         <CategoryPreviewContainer>
             <h2>

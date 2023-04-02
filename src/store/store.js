@@ -5,15 +5,16 @@ import {persistStore, persistReducer} from "redux-persist";
 import storage from 'redux-persist/lib/storage'
 import {rootReducer} from "./root-reducer";
 import {loggerMiddleware} from "./middleware/logger";
+import thunk from 'redux-thunk';
 
 // Config to tell persist what we want
-const persistConfig={
-    key:'root',
+const persistConfig = {
+    key: 'root',
     storage,
-    blacklist:['user']
+    whitelist: ['cart']
 }
 
-const persistedReducer = persistReducer(persistConfig,rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 //curry function
 // function curry(f) { // curry(f) does the currying transform
 //   return function(a) {
@@ -32,9 +33,11 @@ const persistedReducer = persistReducer(persistConfig,rootReducer);
 //
 // alert( curriedSum(1)(2) ); // 3
 
-
 //const middlewares = [loggerMiddleware]; filter to remove [false] and get []
-const middlewares = [process.env.NODE_ENV !== 'production' && logger].filter(Boolean);
+const middlewares = [process.env.NODE_ENV !== 'production' &&
+    logger,
+    thunk
+    ].filter(Boolean);
 const composeEnhancer = (process.env.NODE_ENV !== 'production'
     && window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
