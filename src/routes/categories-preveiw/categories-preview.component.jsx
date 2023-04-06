@@ -2,7 +2,6 @@ import {Fragment} from "react";
 import CategoryPreviewComponent from "../../components/categpry-preview/category-preview.component";
 import {useSelector} from "react-redux";
 import {
-    selectCategories,
     selectCategoriesIsLoading,
     selectCategoriesMap
 } from "../../store/categories/category.selector";
