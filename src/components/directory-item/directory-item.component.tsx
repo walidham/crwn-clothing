@@ -1,7 +1,6 @@
 import {BackgroundImage,Body,DirectoryItemContainer} from './directory-item.styles';
 
 import {useNavigate} from "react-router-dom";
-import {Category} from "../../store/categories/category.types";
 import {FC} from "react";
 import {CategoryDirectory} from "../directory/directory.component";
 

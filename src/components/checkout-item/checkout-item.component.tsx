@@ -6,12 +6,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectCartItems} from "../../store/cart/cart.selector";
 import {addItemToCart, clearItemFromCart, removeItemFromCart} from "../../store/cart/cart.action";
 import {CartItem} from "../../store/cart/cart.types";
-import {FC} from "react";
+import {FC, memo} from "react";
 
 type CheckoutItemprops = {
     cartItem:CartItem;
 }
-const CheckoutItemComponent:FC<CheckoutItemprops> = ({cartItem}) => {
+const CheckoutItemComponent:FC<CheckoutItemprops> = memo(({cartItem}) => {
     const cartItems = useSelector(selectCartItems);
     const dispatch = useDispatch();
    // const {clearItemFromCart, addItemToCart, removeItemFromCart} = useContext(CartContext);
@@ -38,6 +38,6 @@ const CheckoutItemComponent:FC<CheckoutItemprops> = ({cartItem}) => {
             <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
         </CheckoutItemContainer>
     )
-}
+})
 
 export default CheckoutItemComponent;

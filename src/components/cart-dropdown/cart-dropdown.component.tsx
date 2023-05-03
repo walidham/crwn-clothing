@@ -4,12 +4,16 @@ import CartItemComponent from "../cart-item/cart-item.component";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {selectCartItems} from "../../store/cart/cart.selector";
+import {useCallback, useState} from "react";
 
 const CartDropdownComponent = () => {
     const navigate = useNavigate();
-    const goToCheckoutHandler = () => {
+   /* const [temp,setTemp]=useState('A');*/
+
+    const goToCheckoutHandler =  useCallback(() => {
+        //console.log(temp);
         navigate('/checkout');
-    }
+    },[])
     const cartItems = useSelector(selectCartItems);
     return (
         <CartDropdownContainer>
@@ -25,6 +29,7 @@ const CartDropdownComponent = () => {
             </CartItems>
 
             <Button type='button' onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
+           {/* <Button type='button' onClick={()=>setTemp('B')}>Update</Button>*/}
 
 
         </CartDropdownContainer>
