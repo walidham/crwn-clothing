@@ -8,7 +8,7 @@ const selectCategoriesReducer = (state:RootState):CategoriesState=> {
      return state.categories;
 }
 
-const selectCategories = createSelector(
+export const selectCategories = createSelector(
     [selectCategoriesReducer],
     (categoriesSlice)=>{
          return categoriesSlice.categories

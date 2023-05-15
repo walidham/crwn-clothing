@@ -12,7 +12,6 @@ const CART_INITIAL_STATE:CartState = {
     cartItems: [],
 }
 export const cartReducer = (state=CART_INITIAL_STATE, action:AnyAction):CartState => {
-    console.log('state =========',state);
     if(setCartItems.match(action)){
         return {
             ...state,
